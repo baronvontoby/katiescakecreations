@@ -1,18 +1,23 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import { BrowserRouter, Route, Switch} from "react-router-dom";
 import "./App.css";
+import NavBar from "./components/NavBar";
+import MainPage from "./pages/MainPage";
+import PricingPage from "./pages/PricingPage";
+import CakeForm from "./pages/CakeForm";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="App">        
+        <BrowserRouter>
+        <NavBar></NavBar>
+          <Switch>
+            <Route exact path='/' component={() => <MainPage />}></Route>
+            <Route exact path='/pricing' component={() => <PricingPage />} ></Route>
+            <Route exact path='/create' component={() => <CakeForm />} ></Route>      
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }
