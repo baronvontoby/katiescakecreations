@@ -1,6 +1,7 @@
 import React from 'react';
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { NavLink } from 'reactstrap';
 import logo from '../../images/KCCLogo.png';
 
 class NavBar extends React.Component {
@@ -25,17 +26,17 @@ class NavBar extends React.Component {
         <Router>
           <header>
             <MDBNavbar style={bgPink} dark expand="md" scrolling fixed="top">
-              <MDBNavbarBrand href="/">
-                  <img src={logo} alt="home" height="80px" width="80px"/>
+              <MDBNavbarBrand>
+                  <NavLink href="/"><img src={logo} alt="home" height="80px" width="80px"/></NavLink>
               </MDBNavbarBrand>
               <MDBNavbarToggler onClick={ this.onClick } />
               <MDBCollapse isOpen = { this.state.collapse } navbar>
                 <MDBNavbarNav left>
                   <MDBNavItem>
-                    <MDBNavLink to="/pricing">Pricing</MDBNavLink>
+                    <NavLink href="/pricing">Pricing</NavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="/create">Create A Cake</MDBNavLink>
+                    <NavLink href="/create">Create A Cake</NavLink>
                   </MDBNavItem>
                 </MDBNavbarNav>
               </MDBCollapse>
